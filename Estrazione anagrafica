@@ -1,0 +1,36 @@
+import os
+import pandas as pd
+
+# Directory contenente i file CSV
+path = '/anagrafica_3-trim'
+
+# Inizializza un DataFrame vuoto in cui verranno combinati i dati
+combined_data = pd.DataFrame()
+
+# Loop attraverso i file nella directory
+for filename in os.listdir(path):
+    if filename.endswith(".csv"):
+        # Apri il file CSV
+        with open(os.path.join(path, filename), 'r', encoding='utf-8') as file:
+            lines = file.readlines()
+
+            # Inizializza una lista vuota per i dati di questo file
+            data = []
+
+            # Loop attraverso le righe del file
+            for line in lines[2:]:  # Ignora le prime due righe
+                # Splitta la riga usando il separatore ';'
+                row = line.strip().split(';')
+                if len(row) == 10:
+                    data.append(row)
+                else:
+                    print(f"Riga con più di 10 colonne ignorata nel file {filename}: {row}")
+
+            # Crea un DataFrame dai dati di questo file
+            df = pd.DataFrame(data, columns=['idImpianto', 'Gestore', 'Bandiera', 'Tipo Impianto', 'Nome Impianto', 'Indirizzo', 'Comune', 'Provincia', 'Latitudine', 'Longitudine'])
+
+            # Aggiungi il DataFrame a combined_data
+            combined_data = pd.concat([combined_data, df], ignore_index=True, sort=False)
+
+# Salva il DataFrame combinato in un nuovo file CSV
+combined_data.to_csv('/anagrafica_3-trim/comb3.csv', index=False)
