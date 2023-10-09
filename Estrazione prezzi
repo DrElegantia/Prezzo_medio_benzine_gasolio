@@ -1,0 +1,29 @@
+import os
+import pandas as pd
+
+# Directory contenente i file CSV
+path = '/prezzi_3-trim'
+
+# Inizializza un DataFrame vuoto in cui verranno combinati i dati
+combined_data = pd.DataFrame()
+
+# Loop attraverso i file nella directory
+for filename in os.listdir(path):
+    if filename.endswith(".csv"):
+        # Leggi il file CSV ignorando le prime due righe e specificando il separatore
+        df = pd.read_csv(os.path.join(path, filename), skiprows=2, sep=';')
+
+        # Ei la data dall'intestazione
+        data_ezione = pd.read_csv(os.path.join(path, filename), nrows=1).columns[0]
+
+        # Aggiungi la data come colonna
+        df['DataEzione'] = data_estrazione
+
+        # Rinomina le colonne
+        df.columns = ['idImpianto', 'descCarburante', 'prezzo', 'isSelf', 'dtComu', 'DataEstrazione']
+
+        # Aggiungi il DataFrame a combined_data
+        combined_data = pd.concat([combined_data, df], ignore_index=True)
+
+# Salva il DataFrame combinato in un nuovo file CSV
+combined_data.to_csv('/prezzi_3-trim/comb3.csv', index=False)
