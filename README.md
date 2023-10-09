@@ -20,3 +20,7 @@ Il grafico include diverse metriche come la media, la mediana e la moda per forn
 Autore:
 Umberto Bertonelli 
 bertonelli.umberto@gmail.com
+![lombardia](https://github.com/DrElegantia/Prezzo_medio_benzine_gasolio/assets/143170925/b17a2201-6ed9-462b-a94e-7a273234998a)
+![Molise](https://github.com/DrElegantia/Prezzo_medio_benzine_gasolio/assets/143170925/3c2ef223-8d1e-40bb-a93b-849d4b8e00dd)
+![Sicilia](https://github.com/DrElegantia/Prezzo_medio_benzine_gasolio/assets/143170925/e2762b4a-7129-4a3b-b5e8-472e1e50669e)
+![veneto](https://github.com/DrElegantia/Prezzo_medio_benzine_gasolio/assets/143170925/e91787c0-3a11-4309-bb61-0f3f3a9f1fa6)
